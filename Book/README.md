@@ -1,2 +1,2 @@
 # BartoloRicardo_48102
-Riverside City College CSC 5 Intro to Programming Fall 2016
+Riverside City College - Introduction to Programming C++ - CSC5 Section 48102
