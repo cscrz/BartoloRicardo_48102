@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     //Declaration of Variables
     float rate=1.5f;//Sea level rise rate in mm/year
     int nYear1=5,nYear2=7,nYear3=10;//Years to calculate rise
-    float rise1,rise2,rise3f;//Solutions for the 3 years from above
+    float rise1,rise2,rise3;//Solutions for the 3 years from above
     int nYrBch;//Number of years before your home is beach front property
     float elevRiv=860f;//Elevation of Riverside in feet according to WikiPedia
     
