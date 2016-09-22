@@ -14,7 +14,7 @@ using namespace std;    //Name-space used in the System Library
 
 //Global Constants
 const float CNVMMFT=304.8f;//Conversion millimeters to feet from Google
-const float CNVMMM=1000f;//Conversion from millimeters to meters
+const float CNVMMM=1000;//Conversion from millimeters to meters
 
 //Function Prototypes
 
@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
     int nYear1=5,nYear2=7,nYear3=10;//Years to calculate rise
     float rise1,rise2,rise3;//Solutions for the 3 years from above
     int nYrBch;//Number of years before your home is beach front property
-    float elevRiv=860f;//Elevation of Riverside in feet according to WikiPedia
+    float elevRiv=860;//Elevation of Riverside in feet according to WikiPedia
     
     //Process values -> Map inputs to Outputs
     rise1=rate*nYear1;

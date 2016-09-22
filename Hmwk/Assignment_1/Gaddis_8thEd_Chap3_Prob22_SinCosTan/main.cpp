@@ -2,7 +2,7 @@
    File:   main
    Author: Ricardo Bartolo Jr.
    Created on September 20th, 2016, 12:13 PM
-   Purpose:  Use T
+   Purpose:  Use trigonometric functions
  */
 
 //System Libraries
