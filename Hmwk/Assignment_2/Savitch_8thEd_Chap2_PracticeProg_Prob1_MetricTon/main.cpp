@@ -11,6 +11,7 @@
 
 //System Libraries
 #include <iostream>   //Input/Output objects
+#include <iomanip>
 using namespace std;  //Name-space used in the System Library
 
 //User Libraries
@@ -33,6 +34,9 @@ int main(int argc, char** argv) {
     //Process values -> Map inputs to Outputs
     
     //Display Output
+    cout<<fixed<<setprecision(2)<<showpoint;
+    
+    
     do
     {
     cout<<"The average weight of a cereal box is "<<WCBOZ<<"ounces."<<endl;
@@ -47,7 +51,7 @@ int main(int argc, char** argv) {
     cout<<"The total weight of "<<cbox<<" boxes of cereal is "<<totw<<" ounces."<<endl<<endl;
     cout<<"Do you want to try again? Type Y for yes and N for no."<<endl;
     cin>>stp;
-    } while (stp==y);
+    } while (stp=='y');
 
     //Exit Program
     return 0;
