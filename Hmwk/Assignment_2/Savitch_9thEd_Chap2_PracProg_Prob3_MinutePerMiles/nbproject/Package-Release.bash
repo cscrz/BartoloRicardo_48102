@@ -13,9 +13,9 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=dll
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/savitch_8thed_chap2_pracprog_prob1_metricton
-OUTPUT_BASENAME=savitch_8thed_chap2_pracprog_prob1_metricton
-PACKAGE_TOP_DIR=savitch8thedchap2pracprogprob1metricton/
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/savitch_9thed_chap2_pracprog_prob3_minutepermiles
+OUTPUT_BASENAME=savitch_9thed_chap2_pracprog_prob3_minutepermiles
+PACKAGE_TOP_DIR=savitch9thedchap2pracprogprob3minutepermiles/
 
 # Functions
 function checkReturnCode
@@ -60,15 +60,15 @@ mkdir -p ${NBTMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory "${NBTMPDIR}/savitch8thedchap2pracprogprob1metricton/bin"
+makeDirectory "${NBTMPDIR}/savitch9thedchap2pracprogprob3minutepermiles/bin"
 copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/savitch8thedchap2pracprogprob1metricton.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/savitch9thedchap2pracprogprob3minutepermiles.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/savitch8thedchap2pracprogprob1metricton.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/savitch9thedchap2pracprogprob3minutepermiles.tar *
 checkReturnCode
 
 # Cleanup
