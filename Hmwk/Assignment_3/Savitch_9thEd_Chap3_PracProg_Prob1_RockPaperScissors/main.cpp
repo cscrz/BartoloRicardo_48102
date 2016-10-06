@@ -26,9 +26,9 @@ int main(int argc, char** argv) {
     char        p1,                     //Player 1 input
                 p2;                     //Player 2 input
     
-    string rr("Rock");                  //String Rock to display
-    string pp("Paper");                 //String Paper to display
-    string ss("Scissors");              //String Scissors to display
+    string  rr("Rock"),                  //String Rock to display
+            pp("Paper"),                 //String Paper to display
+            ss("Scissors");              //String Scissors to display
     
     string sp1, sp2;                    //String container to display in output
     

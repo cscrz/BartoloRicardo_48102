@@ -6,8 +6,8 @@
  */
 
 //System Libraries
-#include <iostream>   //Input/Output objects
-using namespace std;  //Name-space used in the System Library
+#include <iostream>     //Input/Output objects
+using namespace std;    //Name-space used in the System Library
 
 //User Libraries
 
