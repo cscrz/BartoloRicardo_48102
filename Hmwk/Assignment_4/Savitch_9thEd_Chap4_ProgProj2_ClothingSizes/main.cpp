@@ -71,10 +71,10 @@ int main(int argc, char** argv) {
     cout<<"Your Jacket Size(Chest size) is: "<<jasz<<" inches."<<endl;
     cout<<"Your Waist Size is "<<waisz<<" inches."<<endl<<endl;
     
-    cout<<"Do you want to try again? Type Y for Yes or N for no."<<endl;
+    cout<<"Do you want to try again? Type Y for Yes or N for no."<<endl;        //Ask user if they want to try again
     cin>>inan;
     
-    switch (inan)
+    switch (inan)                                                               //Switch for user's input if they entered lower case
     {
         case 'y': inan='y'; break;
         case 'Y': inan='y'; break;
@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
         default: inan='y'; break;
     }
     
-    } while (inan=='y');
+    } while (inan=='y');                                                        //Repeat if user answers yes
 
     //Exit Program
     return 0;

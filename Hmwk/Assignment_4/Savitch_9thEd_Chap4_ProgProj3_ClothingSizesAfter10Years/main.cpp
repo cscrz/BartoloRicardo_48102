@@ -15,10 +15,7 @@ using namespace std;    //Name-space used in the System Library
 //Global Constants
 const float EOAI=0.125f,                            //One eighth of an inch
             TOAI=0.1f,                              //One tenth of an inch
-            A10Y=10;
-
-//Function prototypes
-void af10Y();
+            A10Y=10.0f;
 
 //Execution Begins Here!
 int main(int argc, char** argv) {

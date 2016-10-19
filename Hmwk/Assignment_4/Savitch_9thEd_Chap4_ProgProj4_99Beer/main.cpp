@@ -29,12 +29,12 @@ int main(int argc, char** argv) {
     
     //Input values
     
-    //Process values -> Map inputs to Outputs
-    for(int num=99;num>=0;num--)
+    //Repeat from 99 to 0
+    for(int num=99;num>=0;num--)        
     {
-        tp=num/10;
+        tp=num/10;                      //Divide number by 10 to get 10th place
         
-        switch(tp)
+        switch(tp)                      //Assign string for all 10th place
         {
             case 9: tpw="Ninety"; break;
             case 8: tpw="Eighty"; break;
@@ -48,9 +48,9 @@ int main(int argc, char** argv) {
             default: tpw=""; break;
         }
         
-        op=num%10;
+        op=num%10;                      //Mod number to get ones place
         
-        switch(op)
+        switch(op)                      //Assign string for all ones place
         {
             case 9: opw="Nine"; break;
             case 8: opw="Eight"; break;
@@ -65,30 +65,89 @@ int main(int argc, char** argv) {
         }
         
                 
-        if (op==0 && num>=20)
+        if (op==0 && num>=20)                                               //If number is 20,30,40...
         {
+            cout<<tpw<<" bottles of beer on the wall."<<endl;
+            cout<<"..."<<endl<<endl;
             cout<<tpw<<" bottles of beer on the wall,"<<endl;
+            cout<<tpw<<" bottles of beer,"<<endl;
+            cout<<"Take one down, pass it around,"<<endl;
         }
-        else if(num<20 && num>13 && num!=18 && num!=15)
+        
+        else if(num<20 && num>13 && num!=18 && num!=15)                     //If number is within "teens"
         {
+            cout<<opw<<tpw<<" bottles of beer on the wall."<<endl;
+            cout<<"..."<<endl<<endl;
             cout<<opw<<tpw<<" bottles of beer on the wall,"<<endl;
+            cout<<opw<<tpw<<" bottles of beer,"<<endl;
+            cout<<"Take one down, pass it around,"<<endl;
         }
-        if(num<10)
+        
+        else if(num<10 && num!=0)                                           //If number is less than 10 & not 0
         {
+            cout<<tpw<<opw<<" bottles of beer on the wall."<<endl;
+            cout<<"..."<<endl<<endl;
             cout<<tpw<<opw<<" bottles of beer on the wall,"<<endl;
+            cout<<tpw<<opw<<" bottles of beer,"<<endl;
+            cout<<"Take one down, pass it around,"<<endl;
         }
+        
+        else if(num>20)                                                     //Default for all numbers except mentioned above
+        {
+            cout<<tpw<<"-"<<opw<<" bottles of beer on the wall."<<endl;
+            cout<<"..."<<endl<<endl;
+            cout<<tpw<<"-"<<opw<<" bottles of beer on the wall,"<<endl;
+            cout<<tpw<<"-"<<opw<<" bottles of beer,"<<endl;
+            cout<<"Take one down, pass it around,"<<endl;
+        }
+        
         else
         {
-            switch(num)
+            switch(num)                                                     //We use switch for special cases like 18,15,0...
             {
-                case 18: cout<<opw<<"een bottles of beer on the wall,"<<endl; break;
-                case 15: cout<<"Fif"<<tpw<<" bottles of beer on the wall,"<<endl; break;
-                case 13: cout<<"Thir"<<tpw<<" bottles of beer on the wall,"<<endl; break;
-                case 12: cout<<"Twelve bottles of beer on the wall,"<<endl; break;
-                case 11: cout<<"Eleven bottles of beer on the wall,"<<endl; break;
-                case 10: cout<<"Ten bottles of beer on the wall,"<<endl; break;
-                case 0: cout<<"Zero bottles of beer on the wall,"<<endl; break;
-                default: cout<<tpw<<"-"<<opw<<" bottles of beer on the wall,"<<endl; break;
+                case 18:    cout<<opw<<"een bottles of beer on the wall."<<endl;
+                            cout<<"..."<<endl<<endl;
+                            cout<<opw<<"een bottles of beer on the wall,"<<endl;
+                            cout<<opw<<"een bottles of beer,"<<endl; 
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                case 15:    cout<<"Fif"<<tpw<<" bottles of beer on the wall."<<endl;
+                            cout<<"..."<<endl<<endl;
+                            cout<<"Fif"<<tpw<<" bottles of beer on the wall,"<<endl;
+                            cout<<"Fif"<<tpw<<" bottles of beer,"<<endl;
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                case 13:    cout<<"Thir"<<tpw<<" bottles of beer on the wall."<<endl; 
+                            cout<<"..."<<endl<<endl;
+                            cout<<"Thir"<<tpw<<" bottles of beer on the wall,"<<endl; 
+                            cout<<"Thir"<<tpw<<" bottles of beer,"<<endl; 
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                case 12:    cout<<"Twelve bottles of beer on the wall."<<endl; 
+                            cout<<"..."<<endl<<endl;
+                            cout<<"Twelve bottles of beer on the wall,"<<endl;
+                            cout<<"Twelve bottles of beer,"<<endl;
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                case 11:    cout<<"Eleven bottles of beer on the wall."<<endl; 
+                            cout<<"..."<<endl<<endl;
+                            cout<<"Eleven bottles of beer on the wall,"<<endl; 
+                            cout<<"Eleven bottles of beer,"<<endl; 
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                case 10:    cout<<"Ten bottles of beer on the wall."<<endl; 
+                            cout<<"..."<<endl<<endl;
+                            cout<<"Ten bottles of beer on the wall,"<<endl; 
+                            cout<<"Ten bottles of beer,"<<endl; 
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                case 0:     cout<<"Zero bottles of beer on the wall."<<endl; 
+                            cout<<"..."<<endl<<endl;
+                            cout<<"Zero bottles of beer on the wall,"<<endl;
+                            cout<<"Zero bottles of beer,"<<endl;
+                            cout<<"Take one down, pass it around,"<<endl;
+                            break;
+                default: break;
             }
         }
 
