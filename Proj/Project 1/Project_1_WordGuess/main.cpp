@@ -34,7 +34,8 @@ int main(int argc, char** argv) {
     string  name;
     
     int     rn,
-            size;
+            size,
+            ch1;
     
     rn=rand()%15+1;
     
@@ -45,10 +46,11 @@ int main(int argc, char** argv) {
         ine>>name;
     }
     
+    ch1=name[0];
     size=name.size();
     
     cout<<"Rand="<<rn<<endl;
-    cout<<name<<size;
+    cout<<name<<size<<ch1;
     
     
     //Input values
