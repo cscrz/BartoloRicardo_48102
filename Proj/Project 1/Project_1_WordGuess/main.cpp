@@ -11,6 +11,8 @@
 #include <iostream>     //Input/Output objects
 #include <fstream>      //File I/O
 #include <string>       //String Library
+#include <cstdlib>      //Random Generator
+#include <ctime>         //Time
 using namespace std;    //Name-space used in the System Library
 
 //User Libraries
@@ -21,18 +23,41 @@ using namespace std;    //Name-space used in the System Library
 
 //Execution Begins Here!
 int main(int argc, char** argv) {
-    //Declaration of Variables
-    ifstream in;
-    ofstream out;
+    //Set random seed
+    srand(static_cast<unsigned int>(time(0)));
     
-    string  name1,
-            name2;
+    //Declaration of Variables
+    ifstream    ine,                                //1-5 letters
+                inn,                                //8-10 letters
+                inh;                                //10+ letters
+    
+    string  name;
+    
+    int     rn,
+            size;
+    
+    rn=rand()%15+1;
+    
+    ine.open("ewords.dat");
+    
+    for(int rn1=rn;rn1>0;rn1--)
+    {
+        ine>>name;
+    }
+    
+    size=name.size();
+    
+    cout<<"Rand="<<rn<<endl;
+    cout<<name<<size;
+    
     
     //Input values
-    in.open("words.dat");
-    in>>name1>>name2;
-    cout<<"Name 1 = "<<name1<<endl;
-    cout<<"Name 2 = "<<name2<<endl;
+//    in.open("words.dat");
+//    in>>name1>>name2;
+//    cout<<"Name 1 = "<<name1<<endl;
+//    cout<<"Name 2 = "<<name2<<endl;
+    
+
     
     
     
@@ -40,7 +65,7 @@ int main(int argc, char** argv) {
     
     //Display Output
 
-    in.close();
+    ine.close();
     //Exit Program
     return 0;
 }
