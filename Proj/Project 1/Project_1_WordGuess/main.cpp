@@ -38,10 +38,10 @@ int main(int argc, char** argv) {
     char    uan;                                    //User's letter guess
             
     
-    int     rn,
-            size,
-            uana,
-            a1,
+    int     rn,                                     //Random number
+            size,                                   //How many letters the word has
+            uana,                                   //User's letter input converted to ascii
+            a1,                                     //Letter 1-14
             a2,
             a3,
             a4,
@@ -56,26 +56,26 @@ int main(int argc, char** argv) {
             a13,
             a14,
             ng=10,                                  //Number of guesses/Life
-            gr=1,                                   
+            gr=1,                                   //If they guessed wrong
             nyg=0,                                  //Letter not yet guess
             pt,                                     //Points
             gar[25],                                //We store user's guesses
-            x=0,
-            y=0,
+            x=0,                                    //Number used to go through array when searching for already guessed letters
+            y=0,                                    //Number used to switch array value to input user's guessed
             dm,                                     //User's difficulty choice
-            dma=0;
+            dma=0;                                  //If user answer is valid from choosing difficulty
     
-    rn=rand()%15+1;                                 //Random number from 1-15 to pick a random word from the list of 15 lines
+    rn=rand()%15+1;                                 //Random number from 1-15 to pick a random word from the list of 15 lines from file
     
-    cout<<"WELCOME TO THE \"WORD GUESSING GAME\""<<endl<<endl<<endl<<endl<<endl;
+    cout<<"WELCOME TO THE \"WORD GUESSING GAME\""<<endl<<endl<<endl<<endl<<endl;    //Start output
     
-    do
+    do                                                                              //Repeat until answered correctly (pick difficulty)
     {
-        cout<<"Please select difficulty!"<<endl;
+        cout<<"Please select difficulty!"<<endl;                                    //Ask user for difficulty
         cout<<"1=Easy(1-5 letters), 2=Normal(8-10 letters), 3=HARD(10+ letters)"<<endl;
         cin>>dm;
 
-        switch(dm)
+        switch(dm)                                                                  //Depending on answer, open file either easy, normal, or hard
         {
             case 1: { inf.open("ewords.dat"); dma=0; break; }
             case 2: { inf.open("nwords.dat"); dma=0; break; }
@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
             default: { cout<<endl<<"Please enter 1, 2, or 3!"<<endl; dma=1; break; }
         }
         
-        while(cin.fail())
+        while(cin.fail())                                                           //If they answered invalid (not 1,2, or 3) do not accept
         {
             cin.clear();
             cout<<endl<<endl;
@@ -92,26 +92,26 @@ int main(int argc, char** argv) {
         
     }while(dma==1);
     
-    for(int rn1=rn;rn1>0;rn1--)
+    for(int rn1=rn;rn1>0;rn1--)                                                     //Goes through the list of words from the file
     {
         inf>>name;
     }
 
-    size=name.size();
+    size=name.size();                                                               //Get how many letters from the word
     
-    do
+    do                                                                              //Repeat until score is the same as the size of the word to win
     {
-        do
+        do                                                                          //Repeat until user guesses a new letter
         {
-            if(ng==0)                                               //If number of guesses/Life is 0, show answer and exit game!
+            if(ng==0)                                               //If number of guesses/Life is 0, show answer, show they LOSE and exit game!
             {
                 cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
                 cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
                 cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
                 
-                hangman(ng);
+                hangman(ng);                                            //Show hangman
                 
-                cout<<"YOU LOSE!!!"<<endl<<endl;
+                cout<<"YOU LOSE!!!"<<endl<<endl;                        //Lose, exit game!
                 cout<<"The answer is: "<<name;
                 exit(0);
             }
@@ -120,20 +120,20 @@ int main(int argc, char** argv) {
             cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
             cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
             
-            hangman(ng);
+            hangman(ng);                                                //Show hangman
             
-            if (gr==0)                                                  //If wrong guess, subtract from life, display warning
+            if (gr==0)                                                  //If wrong guess, subtract from life (number of guesses), display warning
             {
                 cout<<"YOU GUESSED WRONG!!! "<<ng<<" guesses left!"<<endl;
             }
             
-            if (nyg==1) cout<<"YOU ALREADY GUESSED THAT LETTER! Try Again!"<<endl;
+            if (nyg==1) cout<<"YOU ALREADY GUESSED THAT LETTER! Try Again!"<<endl;  //If they guessed the letter already
             
             cout<<endl;
-            cout<<"Number of Guesses left = "<<ng<<endl;
-            prog(size,name,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14);
+            cout<<"Number of Guesses left = "<<ng<<endl;                            //Show number of guesses left
+            prog(size,name,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14);         //Show current letters/unknown letters
             
-            nyg=0;
+            nyg=0;                                                                  //Reset value if they guessed already for next input
             cout<<endl;
             
             cout<<"Guess a letter: ";cin>>uan;                      //Ask user to guess a letter
@@ -147,15 +147,15 @@ int main(int argc, char** argv) {
             
             for(int m=size;m>0;m--)                                 //Check answer if already guessed previously!
             {
-                if(gar[x]==uana)
+                if(gar[x]==uana)                                    //Go through all 25 values in array with x
                 {
                     cout<<endl;
-                    nyg=1;
-                    gr=1;
+                    nyg=1;                                          //If answer exists within array, switch value for if they guessed the letter already
+                    gr=1;                                           //Make sure they don't get penalized when they input the same answer
                 }
-                x++;
+                x++;                                                //Increase x for next value in array
             }
-            x=0;
+            x=0;                                                    //Reset x to go back to the beginning of the array
         }while(nyg==1);                                                         //Repeat to ask user for another answer if already guessed
         
         gar[y]=uana;                                                            //Save the letter user guessed to array gar!
@@ -173,24 +173,44 @@ int main(int argc, char** argv) {
         
         y++;                                                                    //Go to next line in array
         
-    }while(pt<size+1);
+    }while(pt<size+1);                                                          //Exit loop if they guessed all the letters
     
     cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
     cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
     cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
     prog(size,name,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14);
     cout<<endl;
-    cout<<"YOU WON THE GAME!!!"<<endl;
+    cout<<"YOU WON THE GAME!!!"<<endl;                                          //Announce they wonn
     
     //Process values -> Map inputs to Outputs
     
     //Display Output
     
 
-    inf.close();
+    inf.close();                                                                //Close the file
     //Exit Program
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//*************************   prog   *******************************************
+//Purpose:  Display the known/guessed letters and unknowns (dash)
+//Inputs:   Size        How many letters the word has in total
+//          nm          The word itself
+//          an1-an14    Each of the letters IF ALREADY GUESSED ranging from 1-14 (14 largest word)
+//Output:   We output/display each letter (if already guessed) or just display "_"
+//******************************************************************************
 
 void prog(int size, string nm, int an1, int an2, int an3, int an4, int an5, int an6, int an7, int an8, int an9, int an10, int an11, int an12, int an13, int an14)
 {
@@ -266,6 +286,24 @@ void prog(int size, string nm, int an1, int an2, int an3, int an4, int an5, int 
     }
 }
 
+
+
+
+
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//*************************   find   *******************************************
+//Purpose:  We find the user's letter guess if it is in the word, give point if 
+//          guessed correctly, then save that til end of game
+//Inputs:   let         User's letter guess
+//          nm          The word itself
+//          an1-an14    Each of the letters ranging from 1-14 (14 largest word)
+//          lf          If guess correctly then we change the value
+//          p           Points if user's guess was right
+//Output:   We change the values of an1-an14 for our prog function to display. 
+//          Also give points for each correct guess
+//******************************************************************************
+
 void find(int let, string nm, int& an1, int& an2, int& an3, int& an4, int& an5, int& an6, int& an7, int& an8, int& an9, int& an10, int& an11, int& an12, int& an13, int& an14, int& lf, int& p)
 {
     if (let==nm[0]) {an1=1; p++; lf=1;}
@@ -283,6 +321,15 @@ void find(int let, string nm, int& an1, int& an2, int& an3, int& an4, int& an5, 
     if (let==nm[12]) {an13=1; p++; lf=1;}
     if (let==nm[13]) {an14=1; p++; lf=1;}
 }
+
+
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//*************************   HANGMAN   ****************************************
+//Purpose:  Display Hangman every time/every screen
+//Inputs:   life            User's number of guesses left
+//Output:   Display Hangman depending on the number of guesses left
+//******************************************************************************
 
 void hangman(int life)
 {
