@@ -13,10 +13,6 @@ using namespace std;    //Name-space used in the System Library
 //User Libraries
 
 //Global Constants
-const float MPF=0.3048f;            //Meter per Foot
-
-const int   CMPM=100,              //Centimeters per meter
-            INPF=12;               //Inches per foot
 
 //Function prototypes
 float intofeet(float);
@@ -47,7 +43,7 @@ int main(int argc, char** argv) {
         cm=tocm(m);                 //Calculate the total feet to centimeters
 
         //Display Output
-        cout<<"feet="<<uft<<endl;
+        cout<<"The total feet is "<<uft<<"."<<endl;
 
         cout<<"That is equivalent to "<<m<<" meters"<<endl;
         cout<<"or "<<cm<<" centimeters."<<endl<<endl;
