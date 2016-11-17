@@ -1,11 +1,10 @@
 /* 
    File:   main
    Author: Ricardo Bartolo Jr.
-   Created on November 15, 2016, 12:12 PM
-   Purpose: "Write a function named firstLast2 that takes as input an array of integers
+   Created on November 17, 2016, 10:31 AM
+   Purpose: "Write a function named countNum2s that takes as input an array of integers
             and an integer that specifies how many entries are in the array. The function
-            should return true if the array starts or ends with the digit 2. Otherwise it
-            should return false."
+            should return the number of 2’s in the array."
  */
 
 //System Libraries
@@ -18,7 +17,7 @@ using namespace std;    //Name-space used in the System Library
 const int LENGTH=5;                 //Length of array
 
 //Function prototypes
-bool firstLast2(int [LENGTH]);      //Function to input values in array
+int countNum2s(int [LENGTH]);      //Function to input values in array
 
 //Execution Begins Here!
 int main(int argc, char** argv) {
@@ -27,8 +26,8 @@ int main(int argc, char** argv) {
     
     //Input values
     
-    //Process values -> Map inputs to Outputs
-    firstLast2(array);              //Run function to input values in array
+    //Process values
+    countNum2s(array);              //We start our function
     
     //Display Output
 
@@ -36,9 +35,13 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-bool firstLast2(int array[LENGTH])
+
+
+int countNum2s(int array[LENGTH])
 {
-    int ans;                        //User's input value
+    int     ans,                        //User's input value
+            two=0;
+    
     for(int c=0;c<LENGTH;c++)       //Begin asking for values. Repeat as many times as the length of array
         {
             cout<<"Please input value for entry "<<c+1<<": ";cin>>ans;      //Ask user for value
@@ -52,7 +55,12 @@ bool firstLast2(int array[LENGTH])
         cout<<array[c]<<" ";
     }
     
+    for(int c=0;c<LENGTH;c++)                                               //Do a search on all values in the array for number 2
+    {
+        if(array[c]==2) two++;
+    }
+    
     cout<<endl;
-    if(array[0]==2 || array[LENGTH-1]==2) cout<<"The array is TRUE"<<endl;  //Display if our array hold 2 in the first place or last place then it's TRUE
-    else cout<<"The array is FALSE"<<endl;                                  //If not, display FALSE
+    cout<<"The number of TWO's in the array is "<<two<<"."<<endl;           //Show how many 2's found
+    
 }
