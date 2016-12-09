@@ -131,12 +131,6 @@ int main(int argc, char** argv) {
     cout<<endl;
     cout<<"*************************************"<<endl;
     
-    for(int x=0; x<SIZE; x++)        //Go through all 9 slots find if same number
-        {
-            cout<<y1[x]<<endl;
-        }
-    
-    
     cout<<endl<<endl;
     cin>>ans2;
     
